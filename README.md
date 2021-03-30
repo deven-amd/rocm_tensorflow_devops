@@ -6,7 +6,7 @@ Repository for scripts pertainaing to building and testing ROCm TensorFlow from 
 
 The branching in this repo should match the branch names in the ROCm TensorFlow fork. 
 
-The `master` branch is the develop branch, and should contain the scripts that are common to all.
+The `main` branch is the develop branch, and should contain the scripts that are common to all.
 
 Scripts / changes that are associated with a particular branch in the ROCm TensorFlow fork should be created in a branch with the same name in this repo. So the scripts in the `develop-upstream` branch here, should be used with the TF source code in the `develop-upstream` branch in the ROCm TensforFlow, and so on. If you need to create a script specific to the `foo_bar` branch in the ROCm TensorFlow fork, please create a `foo_bar` branch here (assuming it does not already exist) for that script.
 
