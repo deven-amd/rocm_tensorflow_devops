@@ -1,0 +1,33 @@
+FROM ubuntu:18.04
+MAINTAINER Deven Desai <deven.desai@amd.com>
+
+ENV DEBIAN_FRONTEND noninteractive
+ENV HOME /root/
+
+# Install additional packages needed for this image:
+# - dependencies to build Python from source
+# - patchelf, as it is required by auditwheel
+RUN apt-get update && apt-get install -y \
+    apt-transport-https \
+    autoconf \
+    automake \
+    build-essential \
+    ca-certificates \
+    libbz2-dev \
+    libffi-dev \
+    libgdbm-dev \
+    libncurses5-dev \
+    libnss3-dev \
+    libreadline-dev \
+    patchelf \
+    software-properties-common \
+    wget \
+    zlib1g-dev \
+      && \
+    rm -rf /var/lib/apt/lists/*
+
+
+COPY install/build_and_install_python.sh /install/
+RUN /install/build_and_install_python.sh "3.6.9"
+RUN /install/build_and_install_python.sh "3.7.7"
+RUN /install/build_and_install_python.sh "3.8.2"
