@@ -1,4 +1,6 @@
-FROM ubuntu:18.04
+ARG BASE_IMAGE=ubuntu:18.04
+
+FROM $BASE_IMAGE
 MAINTAINER Deven Desai <deven.desai@amd.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -31,3 +33,4 @@ COPY install/build_and_install_python.sh /install/
 RUN /install/build_and_install_python.sh "3.6.9"
 RUN /install/build_and_install_python.sh "3.7.7"
 RUN /install/build_and_install_python.sh "3.8.2"
+RUN /install/build_and_install_python.sh "3.9.4"
